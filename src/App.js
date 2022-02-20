@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import { 
+  contract,
+  currentVoteCount,
+  connectWallet,
+  vote,
+  updateVoteCount,
+  getCurrentWalletConnected
+} from './util/interact';
+
+//State variables
+const [walletAddress, setWallet] = useState("");
+const [status, setStatus] = useState("");
+const [message, setMessage] = useState("No connection to the network.");
+const [newMessage, setNewMessage] = useState("");
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>VOTE HERE</h1>
     </div>
   );
 }
