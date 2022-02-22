@@ -14,7 +14,7 @@ function App() {
 
 //State variables
 const [walletAddress, setWalletAddress] = useState("");
-const [message, setMessage] = useState("No connection to the network.");
+const [message, setMessage] = useState("red");
 const [walletDetected, setWalletDetected] = useState("false")
 
 const contractABI = abi.abi
@@ -32,7 +32,7 @@ const [candidate2, setCandidate2]= useState("")
 //connect to wallet
 const connectWallet = async () =>{
   setWalletAddress(await connectWalletHandler())
-  setMessage("connected")
+  setMessage("green")
 };
 console.log(walletAddress)
 
@@ -42,7 +42,7 @@ const addWalletListener = ()=> {
     ethereum.on("accountsChanged", (accounts)=>{
       if (accounts.length !== 0){
         setWalletAddress(accounts[0])
-        setMessage("account changed successfully")
+        setMessage("yellow")
       }
     })
   }
@@ -99,15 +99,13 @@ useEffect(() => {
   return (
     <div className="app">
       <div className="top">
-        
-            <h3>{message}</h3>
           {walletDetected && (
-            <button className="button-32" onClick = {connectWallet}>
+            <button className="btn slide_left" onClick = {connectWallet}>
               {walletAddress.length > 0 ? 
               ('Connected: ' + String(walletAddress).substring(0,6)+ "..." + String(walletAddress).substring(38)) :
               (<span>Connect Wallet</span>)}
             </button>)}
-        
+            <div className={message}></div>
       </div>
       
       <h1>VOTE HERE</h1>
@@ -116,8 +114,8 @@ useEffect(() => {
       <div className='main-content'>
         <div className='left'>{candidate1[1]}  {voteCount1}</div>
         <div className='right'>{candidate2[1]}  {voteCount2}</div>
-        <button className="button-32" onClick= {()=>{vote(0); getVote1()}}>VOTE joey</button>
-        <button className="button-32" onClick= {()=>{vote(1); getVote2()}}>VOTE sarah</button>
+        <button className="btn" onClick= {()=>{vote(0); getVote1()}}>VOTE joey</button>
+        <button className="btn" onClick= {()=>{vote(1); getVote2()}}>VOTE sarah</button>
 
       </div>
     </div>
