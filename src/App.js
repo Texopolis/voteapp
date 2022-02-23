@@ -18,8 +18,8 @@ const [walletAddress, setWalletAddress] = useState("");
 const [message, setMessage] = useState("red");
 const [walletDetected, setWalletDetected] = useState("false")
 
-const contractABI = abi.abi
-const contractAddress = '0x5187B771259e4E7E7334616bb0290C130983FE98'
+const contractABI = abi
+const contractAddress = '0x6713a8ac29bbb25f25eb1ba4b1c34df9791536ad'
 
 const { ethereum } = window;
 
@@ -54,9 +54,9 @@ const addWalletListener = ()=> {
   //read the contract
 useEffect(() => {
   const fetchCandidate= async () => {
-    const res1 = await contract.candidateLookup(1)
+    const res1 = await contract.candidateLookup(0)
     setCandidate1(res1)
-    const res2 = await contract.candidateLookup(2)
+    const res2 = await contract.candidateLookup(1)
     setCandidate2(res2)
    };
   fetchCandidate()
@@ -110,7 +110,7 @@ useEffect(() => {
             <div className={message}></div>
       </div>
       
-      <h1 className="title">Presidential Election</h1>
+      <h1 className="title">Primary Election 2022</h1>
       <h4 className="title2">secured by blockchain</h4>
       
       

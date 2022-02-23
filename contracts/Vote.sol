@@ -16,13 +16,13 @@ contract Vote {
     uint public candidatesCount;
 
     constructor () {
-        addCandidate("Joey Sonstein2");
-        addCandidate("Sarah Marshal2");
+        addCandidate("Eliana Neema", 10);
+        addCandidate("Aracely Romero", 15);
     }
 
-    function addCandidate (string memory _name) private{
+    function addCandidate (string memory _name, uint _count) private{
         candidatesCount++;
-        candidateLookup[candidatesCount] = Candidate(candidatesCount, _name, 0);
+        candidateLookup[candidatesCount] = Candidate(candidatesCount, _name, _count);
     }
 
     function getCandidates () external view returns (string[] memory, uint[] memory){
