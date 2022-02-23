@@ -9,6 +9,7 @@ import {
   } from './util/interact';
 import candidate1img from './images/candidate1.png';
 import candidate2img from './images/candidate2.png';
+import Card from './components/card'
 
 function App() {
 
@@ -96,6 +97,7 @@ useEffect(() => {
   addSmartContractListener()
 },[]);
 
+
   return (
     <div className="app">
       <div className="top">
@@ -108,15 +110,35 @@ useEffect(() => {
             <div className={message}></div>
       </div>
       
-      <h1>VOTE HERE</h1>
+      <h1 className="title">Presidential Election</h1>
+      <h4 className="title2">secured by blockchain</h4>
       
       
-      <div className='main-content'>
+      {/* <div className='main-content'>
         <div className='left'>{candidate1[1]}  {voteCount1}</div>
         <div className='right'>{candidate2[1]}  {voteCount2}</div>
         <button className="btn" onClick= {()=>{vote(0); getVote1()}}>VOTE joey</button>
         <button className="btn" onClick= {()=>{vote(1); getVote2()}}>VOTE sarah</button>
 
+      </div> */}
+      {/* <div className='img' style={{backgroundImage: `url(${candidate1img})`}}></div> */}
+      <div className='cards'>
+        
+      <Card
+        img={candidate1img}
+        name={candidate1[1]}
+        voteCount= {voteCount1}
+        id = '0'
+        vote= {vote}
+        // getVote={getVote1}
+        />
+      <Card
+        img={candidate2img}
+        name={candidate2[1]}
+        voteCount={voteCount2}
+        id = '1'
+        vote= {vote}
+        />
       </div>
     </div>
   );
