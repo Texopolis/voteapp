@@ -6,7 +6,7 @@ export default function Card (props){
       <div className='img' style={{backgroundImage: `url(${props.img})`}}></div>
             <div className="info">
                 <h2 className="name">{props.name}</h2>
-                <h3 className="voteCount">Vote Tally: {props.voteCount}</h3>
+                <h3 className="voteCount">Vote Tally: {new Intl.NumberFormat().format(props.voteCount)}</h3>
                 <button className="btn"
                         onClick= {()=>{props.vote(props.id)}}
                         >VOTE: {props.name}
