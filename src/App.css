@@ -84,7 +84,7 @@
 .title{
     color: rgb(255, 255, 255);
   text-shadow:
-    0 0 5px #d4a0c0,
+    0 0 5px #eb22bf,
     0 0 10px #d4a0c0,
     0 0 20px #d1a1bf,
     0 0 40px #D80286,
@@ -132,6 +132,18 @@
 -moz-box-shadow: 0px 0px 105px 32px rgba(45,255,196,0.61);
 box-shadow: 0px 0px 105px 32px rgba(45,255,196,0.61);
 }
+
+@media screen and (max-width:725px){
+    .cards{
+        flex-direction: column;
+    }
+    .card{
+        flex-direction: row;
+        width:85vw
+    }
+}
+
+
 
 .img {
     /* display: flex; */

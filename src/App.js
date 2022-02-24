@@ -60,6 +60,8 @@ useEffect(() => {
     setCandidate2(res2)
    };
   fetchCandidate()
+  getVote1()
+  getVote2()
 }, [])
 
 
@@ -97,6 +99,10 @@ useEffect(() => {
   addSmartContractListener()
 },[]);
 
+//get date
+let date = new Date
+let today = date.toLocaleDateString('en-US', { month:'short',day:'numeric', year:'numeric' })
+
 
   return (
     <div className="app">
@@ -110,7 +116,7 @@ useEffect(() => {
             <div className={message}></div>
       </div>
       
-      <h1 className="title">Primary Election 2022</h1>
+      <h1 className="title">{today} Primary Election</h1>
       <h4 className="title2">secured by blockchain</h4>
       
       
