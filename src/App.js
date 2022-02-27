@@ -117,7 +117,7 @@ let today = date.toLocaleDateString('en-US', { month:'short',day:'numeric', year
       </div>
       
       <h1 className="title">{today} Primary Election</h1>
-      <h4 className="title2">secured by ethereum blockchain</h4>
+      <h4 className="title2">secured on the ethereum blockchain</h4>
       
       
       {/* <div className='main-content'>
